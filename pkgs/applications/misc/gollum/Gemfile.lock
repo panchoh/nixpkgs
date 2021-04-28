@@ -38,7 +38,7 @@ GEM
       mime-types (>= 1.15)
       rugged (~> 0.99)
     json (2.3.1)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.0.1)
       kramdown (~> 2.0)
