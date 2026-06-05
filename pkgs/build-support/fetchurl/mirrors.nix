@@ -86,6 +86,23 @@
     "ftp://ftp.funet.fi/pub/mirrors/ftp.gnu.org/gnu/"
   ];
 
+  # GNU Alpha releases
+  gnuAlpha = [
+    "https://mirror.cyberbits.eu/gnu/alpha/"
+    "https://mirror.bahnhof.net/pub/gnu-alpha/"
+    "https://mirrors.middlendian.com/gnu-alpha/"
+    "https://ftp.eq.uc.pt/software/unix/gnu-alpha/"
+    "https://www.nic.funet.fi/pub/gnu/alpha/gnu/"
+    "https://mirror.kumi.systems/gnualpha/"
+    "https://ftp.kaist.ac.kr/gnu-alpha/"
+    "https://mirrors.nju.edu.cn/gnu-alpha/"
+    "https://mirror.marwan.ma/gnualpha/"
+    "https://gnu.c3sl.ufpr.br/alpha/"
+
+    # This one is the master repository, and thus it's always up-to-date
+    "https://alpha.gnu.org/gnu/"
+  ];
+
   # GnuPG
   gnupg = [
     "https://gnupg.org/ftp/gcrypt/"

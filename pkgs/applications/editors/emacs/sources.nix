@@ -25,6 +25,12 @@ let
 
       src =
         {
+          "prerelease" = (
+            fetchzip {
+              url = "mirror://gnuAlpha/emacs/pretest/${rev}.tar.xz";
+              inherit hash;
+            }
+          );
           "mainline" = (
             fetchzip {
               url = "mirror://gnu/emacs/${rev}.tar.xz";
@@ -74,6 +80,7 @@ let
         '';
         changelog =
           {
+            "prerelease" = "https://cgit.git.savannah.gnu.org/cgit/emacs.git/tree/etc/NEWS?h=emacs-${rev}";
             "mainline" = "https://www.gnu.org/savannah-checkouts/gnu/emacs/news/NEWS.${version}";
             "macport" = "https://github.com/jdtsmith/emacs-mac/blob/${rev}/NEWS-mac";
           }
@@ -81,6 +88,13 @@ let
         license = lib.licenses.gpl3Plus;
         maintainers =
           {
+            "prerelease" = with lib.maintainers; [
+              AndersonTorres
+              adisbladis
+              jwiegley
+              linj
+              panchoh
+            ];
             "mainline" = with lib.maintainers; [
               AndersonTorres
               adisbladis
@@ -95,6 +109,7 @@ let
           .${variant};
         platforms =
           {
+            "prerelease" = lib.platforms.all;
             "mainline" = lib.platforms.all;
             "macport" = lib.platforms.darwin;
           }
@@ -105,6 +120,14 @@ let
     };
 in
 {
+  emacs31 = import ./make-emacs.nix (mkArgs {
+    pname = "emacs";
+    version = "31.0.90";
+    variant = "prerelease";
+    rev = "emacs-31.0.90";
+    hash = "sha256-Kptar2/yVZSX41AVYnFiFa3Znbw+Kui7lskwTBEa4Rk=";
+  });
+
   emacs30 = import ./make-emacs.nix (mkArgs {
     pname = "emacs";
     version = "30.2";
